@@ -58,7 +58,7 @@ helm install wiki-release-1 -f values.yaml .
   export MARIADB_ROOT_PASSWORD=$(kubectl get secret --namespace default wiki-release-1-mariadb  -o jsonpath="{.data.mariadb-root-password}" | base64 --decode)
   export MARIADB_PASSWORD=$(kubectl get secret --namespace default wiki-release-1-mariadb -o jsonpath="{.data.mariadb-password}" | base64 --decode)
 
-# Complete your Mediawiki deployment by running:
+# complete your Mediawiki deployment by running:
 
   helm upgrade wiki-release-1 bitnami/mediawiki \
     --set mediawikiHost=$APP_HOST,mediawikiPassword=$APP_PASSWORD,mariadb.auth.rootPassword=$MARIADB_ROOT_PASSWORD,mariadb.auth.password=$MARIADB_PASSWORD
