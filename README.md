@@ -47,8 +47,11 @@ chmod 700 get_helm.sh
 # provisioning infrastructure 
 
 cd mediawiki-EKS-helm-terraform/terraform/
+
 terraform init
+
 terraform plan
+
 terraform apply
 
 # EKS cluster on AWS 
