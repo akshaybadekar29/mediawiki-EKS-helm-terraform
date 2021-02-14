@@ -1,10 +1,9 @@
-# mediawiki-EKS-helm-terraform
+# Mediawiki-EKS-helm-terraform
+This document provides steps to deploy mediawiki application on AWS EKS unsing terraform and helm chart
 
 # architecture diagram
 
 ![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/blob/master/diagrams/WikimediaArch.jfif?raw=true)
-
-
 
 
 # login to Amazon
@@ -48,6 +47,11 @@ terraform init
 terraform plan
 terraform apply
 
+# EKS cluster on AWS 
+
+![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/blob/master/diagrams/eks_cluster.JPG)
+
+
 # spin up application 
 
 cd mediawiki-EKS-helm-terraform/mediawiki-helm/
@@ -71,15 +75,20 @@ helm install wiki-release-1 -f values.yaml .
     --set mediawikiHost=$APP_HOST,mediawikiPassword=$APP_PASSWORD,mariadb.auth.rootPassword=$MARIADB_ROOT_PASSWORD,mariadb.auth.password=$MARIADB_PASSWORD
 
 # helm ls 
-<screenshot>
 
-# access application using loadbalancer 
-get end point 
+![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/blob/master/diagrams/helmls.png?raw=true)
+
+
+#  get service end point 
 
 kubectl get svc --namespace default -w wiki-release-1-mediawiki
 
+![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/blob/master/diagrams/service%20endpoint.png?raw=true)
+
+
 # browse application
 
+![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/blob/master/diagrams/Application.png?raw=true)
 
 # clean up
 terraform destroy
