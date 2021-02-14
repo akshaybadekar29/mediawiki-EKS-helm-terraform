@@ -72,9 +72,9 @@ helm install wiki-release-1 -f values.yaml .
 # access application using loadbalancer 
 get end point 
 
-kubectl get svc --namespace default -w wiki-release-1-mediawiki'
+kubectl get svc --namespace default -w wiki-release-1-mediawiki
 
-# brows application
+# browse application
 
 
 # clean up
