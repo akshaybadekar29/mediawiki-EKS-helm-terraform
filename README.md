@@ -54,8 +54,11 @@ helm install wiki-release-1 -f values.yaml .
 # get the Mediawiki URL by running:
 
   export APP_HOST=$(kubectl get svc --namespace default wiki-release-1-mediawiki --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
+  
   export APP_PASSWORD=$(kubectl get secret --namespace default wiki-release-1-mediawiki -o jsonpath="{.data.mediawiki-password}" | base64 --decode)
+  
   export MARIADB_ROOT_PASSWORD=$(kubectl get secret --namespace default wiki-release-1-mariadb  -o jsonpath="{.data.mariadb-root-password}" | base64 --decode)
+  
   export MARIADB_PASSWORD=$(kubectl get secret --namespace default wiki-release-1-mariadb -o jsonpath="{.data.mariadb-password}" | base64 --decode)
 
 # complete your Mediawiki deployment by running:
