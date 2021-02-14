@@ -2,6 +2,10 @@
 
 # architecture diagram
 
+![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/diagrams/Application.png?raw=true)
+
+
+
 
 # login to Amazon
  your "My Security Credentials" section in your profile. 
