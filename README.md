@@ -1,11 +1,11 @@
 # mediawiki-EKS-helm-terraform
 
-# Architecture 
+# architecture diagram
 
 
-Login to Amazon
-# Access your "My Security Credentials" section in your profile. 
-# Create an access key
+# login to Amazon
+ your "My Security Credentials" section in your profile. 
+ create an access key
 
 # install aws cli and configure on machine
 
@@ -53,9 +53,6 @@ helm install wiki-release-1 -f values.yaml .
 
 # get the Mediawiki URL by running:
 
-  NOTE: It may take a few minutes for the LoadBalancer IP to be available.
-        Watch the status with: 'kubectl get svc --namespace default -w wiki-release-1-mediawiki'
-
   export APP_HOST=$(kubectl get svc --namespace default wiki-release-1-mediawiki --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
   export APP_PASSWORD=$(kubectl get secret --namespace default wiki-release-1-mediawiki -o jsonpath="{.data.mediawiki-password}" | base64 --decode)
   export MARIADB_ROOT_PASSWORD=$(kubectl get secret --namespace default wiki-release-1-mariadb  -o jsonpath="{.data.mariadb-root-password}" | base64 --decode)
@@ -66,11 +63,17 @@ helm install wiki-release-1 -f values.yaml .
   helm upgrade wiki-release-1 bitnami/mediawiki \
     --set mediawikiHost=$APP_HOST,mediawikiPassword=$APP_PASSWORD,mariadb.auth.rootPassword=$MARIADB_ROOT_PASSWORD,mariadb.auth.password=$MARIADB_PASSWORD
 
-
-
 # helm ls 
+<screenshot>
 
 # access application using loadbalancer 
+get end point 
+
+kubectl get svc --namespace default -w wiki-release-1-mediawiki'
+
+# brows application
+
 
 # clean up
 terraform destroy
+helm delete wiki-release-1
