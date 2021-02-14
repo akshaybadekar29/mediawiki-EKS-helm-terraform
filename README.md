@@ -16,28 +16,32 @@ aws configure
 
 Default region name: ap-south-1
 Default output format: json
-Terraform CLI
 
 # install Terraform
 
 curl -o /tmp/terraform.zip -LO https://releases.hashicorp.com/terraform/0.13.1/terraform_0.13.1_linux_amd64.zip
+
 unzip /tmp/terraform.zip
+
 chmod +x terraform && mv terraform /usr/local/bin/
 
-Lets see what we deployed
 # grab our EKS config
 aws eks update-kubeconfig --name eks-cluster --region ap-south-1
 
 # Install kubectl on machine
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+
 chmod +x ./kubectl
+
 mv ./kubectl /usr/local/bin/kubectl
 
 # install helm on machine 
 
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
+
 chmod 700 get_helm.sh
+
 ./get_helm.sh
 
 # provisioning infrastructure 
@@ -59,7 +63,7 @@ cd mediawiki-EKS-helm-terraform/mediawiki-helm/
 helm install wiki-release-1 -f values.yaml .
 
 
-# get the Mediawiki URL by running:
+# get passwors by running below commands:
 
   export APP_HOST=$(kubectl get svc --namespace default wiki-release-1-mediawiki --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
   
