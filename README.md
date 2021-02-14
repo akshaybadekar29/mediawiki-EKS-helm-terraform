@@ -91,5 +91,7 @@ kubectl get svc --namespace default -w wiki-release-1-mediawiki
 ![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/blob/master/diagrams/Application.png?raw=true)
 
 # clean up
+
 terraform destroy
+
 helm delete wiki-release-1
