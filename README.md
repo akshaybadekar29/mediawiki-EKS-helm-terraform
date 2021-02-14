@@ -2,7 +2,7 @@
 
 # architecture diagram
 
-![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/diagrams/Application.png?raw=true)
+![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/diagrams/Application.png ?raw=true)
 
 
 
