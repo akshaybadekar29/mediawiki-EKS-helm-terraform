@@ -74,7 +74,7 @@ get end point
 
 kubectl get svc --namespace default -w wiki-release-1-mediawiki
 
-# brows application
+# browse application
 
 
 # clean up
