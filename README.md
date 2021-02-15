@@ -25,8 +25,7 @@ unzip /tmp/terraform.zip
 
 chmod +x terraform && mv terraform /usr/local/bin/
 
-# grab our EKS config
-aws eks update-kubeconfig --name eks-cluster --region ap-south-1
+
 
 # Install kubectl on machine
 
@@ -58,6 +57,9 @@ terraform apply
 
 ![alt text](https://github.com/akshaybadekar29/mediawiki-EKS-helm-terraform/blob/master/diagrams/eks_cluster.JPG)
 
+
+# grab our EKS config
+aws eks update-kubeconfig --name eks-cluster --region ap-south-1
 
 # spin up application 
 
